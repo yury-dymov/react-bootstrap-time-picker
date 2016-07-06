@@ -24,7 +24,7 @@ class TimePicker extends Component {
     onChange:     () => {}
   };
 
-  state = { value: this.generateFormattedTime(this.props.initialValue) };
+  state = { value: null };
 
   handleChange = (e) => {
     const { key, value } = e.target;
@@ -81,10 +81,8 @@ class TimePicker extends Component {
 
 
   render() {
-    const { value } = this.state;
-
+    const value     = this.state.value || this.generateFormattedTime(this.props.initialValue);
     const rest      = omit(this.props, ['start', 'end', 'step', 'initialValue', 'format', 'onChange']);
-
     const options   = this.listTimeOptions().map(({ key, ivalue }) => (
       <option key={key} value={ivalue}>
         {this.generateFormattedTime(key)}
