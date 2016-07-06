@@ -1,0 +1,65 @@
+{
+  "name": "react-bootstrap-time-picker",
+  "version": "0.0.1",
+  "description": "Simple time picker for react.",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "build": "npm run clean && npm run build:umd",
+    "build:umd": "NODE_ENV=production webpack --config webpack.config.prod.js -p",
+    "clean": "rimraf dist && rimraf lib",
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yury-dymov/react-bootstrap-time-picker"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "time",
+    "picker",
+    "select",
+    "input"
+  ],
+  "author": "Yury Dymov <yuri@dymov.me> (http://github.com/yury-dymov)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yury-dymov/react-bootstrap-time-picker/issues"
+  },
+  "homepage": "https://github.com/yury-dymov/react-bootstrap-time-picker",
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-core": "^6.10.4",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "empty-module": "0.0.2",
+    "eslint": "^2.10.2",
+    "eslint-plugin-babel": "^3.2.0",
+    "eslint-plugin-react": "^5.1.1",
+    "json-loader": "^0.5.4",
+    "react": "^15.1.0",
+    "react-bootstrap": "^0.29.5",
+    "react-dom": "^15.1.0",
+    "react-transform-catch-errors": "^1.0.2",
+    "react-transform-hmr": "^1.0.4",
+    "redbox-react": "^1.2.6",
+    "rimraf": "^2.5.2",
+    "webpack": "^1.13.1",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0",
+    "webpack-node-externals": "^1.2.0"
+  },
+  "dependencies": {
+    "lodash": "^4.13.1",
+    "time-number": "^0.1.1"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "react-bootstrap": "*"
+  }
+}
