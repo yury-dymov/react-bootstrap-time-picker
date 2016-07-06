@@ -4,10 +4,12 @@ import FormControl                      from 'react-bootstrap/lib/FormControl';
 import { timeToInt, timeFromInt }       from 'time-number';
 
 import omit                             from 'lodash/omit';
+import isNumber                         from 'lodash/isNumber';
 
 class TimePicker extends Component {
   static propTypes = {
-    initialValue: PropTypes.string,
+    initialValue: PropTypes.any,
+    value:        PropTypes.any,
     start:        PropTypes.string,
     end:          PropTypes.string,
     step:         PropTypes.number,
@@ -26,11 +28,15 @@ class TimePicker extends Component {
 
   state = { value: null };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ value: nextProps.props });
+  }
+
   handleChange = (e) => {
-    const { key, value } = e.target;
+    const value = parseInt(e.target.value, 10);
 
     this.setState({ value });
-    this.props.onChange(key);
+    this.props.onChange(value);
   };
 
   listTimeOptions = () => {
@@ -60,9 +66,9 @@ class TimePicker extends Component {
       return `${ret} PM`;
     }
 
-    const newHour = hour < 10 ? `0${hour}` : hour.toString();
+    const newHour = hour < 22 ? `0${hour - 12}` : (hour - 12).toString();
 
-    return `${time.replace(/^(\d+)/, newHour)} PM`;
+    return `${ret.replace(/^\d+/, newHour)} PM`;
   };
 
   generateTimeRange = () => {
@@ -70,29 +76,50 @@ class TimePicker extends Component {
 
     const start = timeToInt(this.props.start);
     const end   = timeToInt(this.props.end);
-    const step  = timeToInt(this.props.step);
 
-    for (let i = start; i < end; i += step * 60) {
+    for (let i = start; i < end; i += this.props.step * 60) {
       times.push(i);
     }
 
     return times;
   };
 
+  getInt = (val) => {
+    if (isNumber(val)) {
+      return val;
+    }
+
+    return timeToInt(val);
+  };
+
+  getValue = (props = this.props) => {
+    if (this.state.value) {
+      return this.state.value;
+    }
+
+    if (props.value) {
+      return this.getInt(props.value);
+    }
+
+    if (props.initialValue) {
+      return this.getInt(props.initialValue);
+    }
+  };
 
   render() {
-    const value     = this.state.value || this.generateFormattedTime(this.props.initialValue);
-    const rest      = omit(this.props, ['start', 'end', 'step', 'initialValue', 'format', 'onChange']);
-    const options   = this.listTimeOptions().map(({ key, ivalue }) => (
-      <option key={key} value={ivalue}>
-        {this.generateFormattedTime(key)}
+    const currentValue  = this.getValue();
+    const rest          = omit(this.props, ['start', 'end', 'step', 'initialValue', 'format', 'onChange', 'value']);
+
+    const options       = this.listTimeOptions().map(({ key, value }, idx) => (
+      <option key={idx} value={key}>
+        {value}
       </option>
     ));
 
     return (
       <FormControl
         componentClass  = 'select'
-        value           = {value}
+        value           = {currentValue}
         onChange        = {this.handleChange}
         {...rest}
       >
