@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-time-picker",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple time picker for react.",
   "main": "dist/bundle.js",
   "scripts": {
@@ -47,7 +47,7 @@
     "webpack-node-externals": "^1.2.0"
   },
   "dependencies": {
-    "time-number": "^0.1.2"
+    "time-number": "^0.1.3"
   },
   "peerDependencies": {
     "react": "*",
