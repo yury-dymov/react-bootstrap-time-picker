@@ -1,2 +1,10 @@
 .idea
+coverage
+demo
+docs
 src
+test
+.babelrc
+.eslintrc
+.travis.yml
+webpack.config.js

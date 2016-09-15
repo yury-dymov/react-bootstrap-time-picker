@@ -1,13 +1,15 @@
 {
   "name": "react-bootstrap-time-picker",
-  "version": "0.0.3",
-  "description": "Simple time picker for react.",
+  "version": "1.0.0",
+  "description": "Bootstrap Time Picker React Component",
   "main": "dist/bundle.js",
   "scripts": {
     "build": "npm run clean && npm run build:umd",
-    "build:umd": "NODE_ENV=production webpack --config webpack.config.prod.js -p",
-    "clean": "rimraf dist && rimraf lib",
-    "lint": "eslint src"
+    "build:umd": "NODE_ENV=production ./node_modules/.bin/webpack  -p",
+    "clean": "./node_modules/.bin/rimraf dist coverage && ./node_modules/.bin/rimraf lib",
+    "lint": "./node_modules/.bin/eslint src",
+    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --compilers js:babel-core/register"
   },
   "repository": {
     "type": "git",
@@ -15,6 +17,7 @@
   },
   "keywords": [
     "react",
+    "react-bootstrap",
     "react-component",
     "time",
     "picker",
@@ -28,26 +31,36 @@
   },
   "homepage": "https://github.com/yury-dymov/react-bootstrap-time-picker",
   "devDependencies": {
-    "babel-cli": "^6.10.1",
-    "babel-core": "^6.10.4",
-    "babel-eslint": "^6.0.4",
-    "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.5.0",
+    "babel-core": "^6.14.0",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
-    "eslint": "^2.10.2",
+    "chai": "^3.5.0",
+    "chai-enzyme": "^0.5.1",
+    "cheerio": "^0.20.0",
+    "enzyme": "^2.4.1",
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb": "^11.1.0",
     "eslint-loader": "^1.5.0",
-    "eslint-plugin-babel": "^3.2.0",
-    "eslint-plugin-react": "^5.1.1",
-    "react": "^15.3.0",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-import": "^1.15.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.2.1",
+    "istanbul": "^1.0.0-alpha.2",
+    "jsdom": "^9.5.0",
+    "mocha": "^3.0.2",
+    "react": "^15.3.1",
+    "react-addons-test-utils": "^15.3.1",
     "react-bootstrap": "^0.30.3",
-    "react-dom": "^15.3.0",
-    "rimraf": "^2.5.2",
-    "webpack": "^1.13.1",
-    "webpack-node-externals": "^1.2.0"
+    "react-dom": "^15.3.1",
+    "rimraf": "^2.5.4",
+    "webpack": "^1.13.2",
+    "webpack-node-externals": "^1.3.3"
   },
   "dependencies": {
-    "time-number": "^0.1.3"
+    "time-number": "^1.0.0"
   },
   "peerDependencies": {
     "react": "*",

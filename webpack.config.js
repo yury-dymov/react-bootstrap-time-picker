@@ -34,5 +34,10 @@ module.exports = {
         loader: 'json'
       }
     ]
-  }
+  },
+  resolve: {
+    root: path.join(__dirname, 'src'),
+    modulesDirectories: [ 'node_modules' ],
+    extensions: ['', '.js', '.jsx']
+  }  
 };
