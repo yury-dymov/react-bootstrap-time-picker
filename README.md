@@ -21,7 +21,7 @@ import TimePicker from 'react-bootstrap-time-picker';
 # Configurable Props
 *Note*: All props are optional.
 
-### end: string, default "23:59"
+## end: string, default "23:59"
 Time Picker renders options with range between `start` and `end` time values with `step` (inclusive).
 
 Should be provided in the following format: "HH?(:mm?(:ss?))".
@@ -32,10 +32,10 @@ Should be provided in the following format: "HH?(:mm?(:ss?))".
 #### Invalid example
 "11:00 PM". Should be provided in 24-hour format only
 
-### format: number, default "23:59"
+## format: number, default "23:59"
 Time Format of rendered options. Supported values: `12` or `24`.
 
-### initialValue: any, default: "00:00"
+## initialValue: any, default: "00:00"
 Initial selected option. Used if `value` prop is either `undefined` or `null`. Can be provided either in "HH?(:mm?(:ss?))" format or as int `(hours * 3600 + minutes * 60 + seconds)`. If `initialValue` is less than `start` property value, then `start` value is used instead.
 
 #### Valid examples
@@ -44,7 +44,7 @@ Initial selected option. Used if `value` prop is either `undefined` or `null`. C
 #### Invalid examples
 "11:00 PM"
 
-### onChange: func, default: () => {}
+## onChange: func, default: () => {}
 Function, which is triggered after one of options is selected. Return selected time in int format: `(hours * 3600 + minutes * 60 + seconds)`.
 
 #### Example
@@ -69,13 +69,13 @@ class Parent extends React.Component {
 }
 ```
 
-### start: string, default: "00:00"
+## start: string, default: "00:00"
 See `end` property description.
 
-### step: number, default: 30
+## step: number, default: 30
 Step between time options in minutes. See `end` property description.
 
-### value
+## value
 Current value. See `initialValue` description.
 
 # Validations
