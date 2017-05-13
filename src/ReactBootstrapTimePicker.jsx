@@ -20,7 +20,7 @@ function TimePicker({
   start         = '00:00',
   step          = 30,
   value         = null,
-  ...rest,
+  ...rest
 }) {
   function generateFormattedTime(time) {
     const ret = timeFromInt(time, false);
