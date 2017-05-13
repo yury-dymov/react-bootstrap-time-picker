@@ -79,7 +79,7 @@ Step between time options in minutes. See `end` property description.
 Current value. See `initialValue` description.
 
 # Validations
-Library doesn't validate provided props much. If you are doing something strange like setting `start="10:00", end="05:00"`, then behavior is undefined, which means that it might render component differently in the future versions. Also underlying library [time-number](https://github.com/yury-dymov/time-number) throws exceptions if provided time is not in a proper format, i.e. values `12:00 PM` and `adl` are considered invalid.
+Library doesn't validate provided props much. If you are doing something strange like setting `start="10:00", end="05:00"`, then behavior is undefined, which means that it might render component differently in the future versions. Also underlying library [time-number](https://github.com/yury-dymov/time-number) throws exceptions if provided time is not in a proper format, i.e. `adl` is considered invalid.
 
 # License
 MIT (c) Yury Dymov
