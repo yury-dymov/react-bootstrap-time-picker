@@ -11,6 +11,11 @@ Time Picker with bootstrap flavor
 # Demo
 Demo and playground are available [here](https://yury-dymov.github.io/react-bootstrap-time-picker/)
 
+# Install
+```bash
+npm i react-bootstrap-time-picker --save
+```
+
 # Usage Example
 ```
 import TimePicker from 'react-bootstrap-time-picker';
