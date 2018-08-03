@@ -69,7 +69,7 @@ class Parent extends React.Component {
   }
 
   render() {
-    return <TimePicker onChange={this.handleTimeChange} value={this.state.time};
+    return <TimePicker onChange={this.handleTimeChange} value={this.state.time} />;
   }
 }
 ```
