@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-time-picker",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Bootstrap Time Picker React Component",
   "main": "dist/bundle.js",
   "scripts": {
@@ -66,6 +66,6 @@
   "peerDependencies": {
     "react": "*",
     "react-dom": "*",
-    "react-bootstrap": "*"
+    "react-bootstrap": "<1.0.0"
   }
 }
