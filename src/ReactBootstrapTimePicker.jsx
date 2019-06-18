@@ -1,6 +1,6 @@
 import React                      from 'react';
 import PropTypes                  from 'prop-types';
-import FormControl                from 'react-bootstrap/lib/FormControl';
+import FormControl                from 'react-bootstrap/FormControl';
 import { timeToInt, timeFromInt } from 'time-number';
 
 const propTypes = {
@@ -35,9 +35,13 @@ function TimePicker({
 
     if (hour === 0) {
       return `${ret.replace(/^\d+/, '12')} AM`;
-    } else if (hour < 12) {
+    }
+
+    if (hour < 12) {
       return `${ret} AM`;
-    } else if (hour === 12) {
+    }
+
+    if (hour === 12) {
       return `${ret} PM`;
     }
 
@@ -89,9 +93,9 @@ function TimePicker({
 
   return (
     <FormControl
-      componentClass  = "select"
-      onChange        = {(e) => { onChange(parseInt(e.target.value, 10)); }}
-      value           = {currentValue}
+      as = "select"
+      onChange = {(e) => { onChange(parseInt(e.target.value, 10)); }}
+      value = {currentValue}
       {...rest}
     >
       {optionWidgets}

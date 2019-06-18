@@ -3,7 +3,7 @@ var webpack       = require('webpack');
 var nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-  eval: 'eval-source-map',
+  devtool: 'eval-source-map',
   externals: [nodeExternals()],
   entry: [
     './src/index'
@@ -19,25 +19,30 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new webpack.NormalModuleReplacementPlugin(/^kronos$/, path.join(__dirname, 'src/index')),
-    new webpack.optimize.OccurenceOrderPlugin()
+    new webpack.NormalModuleReplacementPlugin(/^kronos$/, path.join(__dirname, 'src/index'))
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loader: 'babel!eslint-loader',
+        use: [{
+          loader: 'babel-loader'
+        }, {
+          loader: 'eslint-loader'
+        }],
         exclude: /node_modules/
       },
       {
         test: /\.json$/,
-        loader: 'json'
+        use: 'json-loader'
       }
     ]
   },
   resolve: {
-    root: path.join(__dirname, 'src'),
-    modulesDirectories: [ 'node_modules' ],
-    extensions: ['', '.js', '.jsx']
+    modules: [
+      path.join(__dirname, 'src'),
+      'node_modules'
+    ],
+    extensions: ['.js', '.jsx']
   }  
 };

@@ -3,17 +3,13 @@
 import React                      from 'react';
 import chai, { expect }           from 'chai';
 import chaiEnzyme                 from 'chai-enzyme';
-import { shallow, mount, render } from 'enzyme';
-import jsdom                      from 'jsdom';
+import Enzyme, { shallow, mount, render } from 'enzyme';
+import EnzymeAdapter from 'enzyme-adapter-react-16';
 import { timeToInt }              from 'time-number';
 import TimePicker                 from '../dist/bundle';
 
+Enzyme.configure({ adapter: new EnzymeAdapter() });
 chai.use(chaiEnzyme());
-
-const doc = jsdom.jsdom('<!doctype html><html><body></body></html>');
-
-global.document = doc;
-global.window = doc.defaultView;
 
 describe('className and style props are propagated', () => {
   it('className: "temp"', () => {
