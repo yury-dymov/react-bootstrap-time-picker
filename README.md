@@ -8,6 +8,10 @@ Time Picker with bootstrap flavor
 [![Build Status](https://img.shields.io/travis/yury-dymov/react-bootstrap-time-picker/master.svg?style=flat)](https://travis-ci.org/yury-dymov/react-bootstrap-time-picker)
 [![Coverage Status](https://coveralls.io/repos/github/yury-dymov/react-bootstrap-time-picker/badge.svg?branch=master)](https://coveralls.io/github/yury-dymov/react-bootstrap-time-picker?branch=master)
 
+# Versions
+* v2 supports React Bootstrap v1.0.0+
+* v1 supports React Bootstrap v0.x.x
+
 # Demo
 Demo and playground are available [here](https://yury-dymov.github.io/react-bootstrap-time-picker/)
 
