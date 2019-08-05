@@ -3,14 +3,14 @@ var webpack       = require('webpack');
 var nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-  devtool: 'eval-source-map',
-  externals: [nodeExternals()],
   entry: [
     './src/index'
   ],
+  externals: [nodeExternals()],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
+    library: 'react-bootstrap-time-picker',
     libraryTarget: 'commonjs2'
   },
   plugins: [
@@ -23,15 +23,7 @@ module.exports = {
   ],
   module: {
     rules: [
-      {
-        test: /\.jsx?$/,
-        use: [{
-          loader: 'babel-loader'
-        }, {
-          loader: 'eslint-loader'
-        }],
-        exclude: /node_modules/
-      },
+      { test: /\.jsx?$/, use: ['babel-loader', 'eslint-loader'], exclude: /node_modules/ },
       {
         test: /\.json$/,
         use: 'json-loader'
@@ -44,5 +36,5 @@ module.exports = {
       'node_modules'
     ],
     extensions: ['.js', '.jsx']
-  }  
+  }
 };

@@ -1,3 +1,6 @@
+### (5th Aug 2019)
+- Fixed require bug
+
 ### (17th June 2019)
 - Added support for `react-bootstrap` 1.0.0 
 

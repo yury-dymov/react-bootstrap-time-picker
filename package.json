@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-time-picker",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Bootstrap Time Picker React Component",
   "main": "dist/bundle.js",
   "scripts": {
